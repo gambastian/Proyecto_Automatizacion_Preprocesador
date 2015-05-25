@@ -39,15 +39,18 @@ public class ModelGenerator {
 
             writer.write("OnuCsv{\n");
             
+            //series
+            writer.write("  series{\n");
             
+            writer.write("  }\n");
             
             // countries
             writer.write("  countries{\n");
             for (int c = 0; c < countries.size(); c++) {
                 if (c == 0) {
-                    writer.write("      Country " + countries.get(c) + " {}\n");
+                    writer.write("      Country \"" + countries.get(c) + "\" {}\n");
                 }else{
-                    writer.write("      ,Country " + countries.get(c) + " {}\n");
+                    writer.write("      ,Country \"" + countries.get(c) + "\" {}\n");
                 }
             }
             writer.write("  }\n");
@@ -56,9 +59,9 @@ public class ModelGenerator {
             writer.write("  indicators{\n");
             for (int m = 0; m < metrics.size(); m++) {
                 if (m == 0) {
-                    writer.write("      Indicator " + metrics.get(m) + " {}\n");
+                    writer.write("      Indicator \"" + metrics.get(m) + "\" {}\n");
                 }else{
-                    writer.write("      ,Indicator " + metrics.get(m) + " {}\n");
+                    writer.write("      ,Indicator \"" + metrics.get(m) + "\" {}\n");
                 }
             }
             writer.write("  }\n");

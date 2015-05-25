@@ -16,7 +16,7 @@ import java.util.Map;
 public class MetricMap {
     
     private String metric;
-    private Map<String, List<Long>> data;
+    private Map<String, List<Value>> data;
 
     public String getMetric() {
         return metric;
@@ -26,11 +26,11 @@ public class MetricMap {
         this.metric = metric;
     }
 
-    public Map<String, List<Long>> getData() {
+    public Map<String, List<Value>> getData() {
         return data;
     }
 
-    public void setData(Map<String, List<Long>> data) {
+    public void setData(Map<String, List<Value>> data) {
         this.data = data;
     }
 }
