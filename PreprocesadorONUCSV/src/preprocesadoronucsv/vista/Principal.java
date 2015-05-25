@@ -5,6 +5,8 @@
  */
 package preprocesadoronucsv.vista;
 
+import java.util.List;
+
 /**
  *
  * @author cd.montanez10
@@ -14,11 +16,14 @@ public class Principal extends javax.swing.JFrame {
     /** Habilita el formulario para seleccion */
     private boolean fileLoaded = false;
     
+    private List<String> paises;
+    
     /**
      * Creates new form Interfaz
      */
     public Principal() {
         initComponents();
+        seleccionPanel.removeAll();
     }
 
     /**
@@ -37,7 +42,7 @@ public class Principal extends javax.swing.JFrame {
         archivoTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         seleccionPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
 
         jCheckBoxMenuItem1.setSelected(true);
@@ -72,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout seleccionPanelLayout = new javax.swing.GroupLayout(seleccionPanel);
         seleccionPanel.setLayout(seleccionPanelLayout);
@@ -80,14 +85,14 @@ public class Principal extends javax.swing.JFrame {
             seleccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(seleccionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         seleccionPanelLayout.setVerticalGroup(
             seleccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(seleccionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
@@ -177,7 +182,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel seleccionPanel;
     // End of variables declaration//GEN-END:variables
 }
