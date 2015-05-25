@@ -1,0 +1,604 @@
+OnuCsv{
+  series{
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "9.00442981719971"
+                  year "1988"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "8.31367969512939"
+                  year "1989"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1990"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1991"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1992"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1993"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1994"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1995"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1996"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1997"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1998"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "5.21510982513428"
+                  year "1999"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.86985015869141"
+                  year "2000"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.5967001914978"
+                  year "2001"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.36386013031006"
+                  year "2002"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "2003"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.50434017181396"
+                  year "2004"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.59496021270752"
+                  year "2005"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.56972980499268"
+                  year "2006"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.39454984664917"
+                  year "2007"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.30285978317261"
+                  year "2008"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.27142000198364"
+                  year "2009"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.48836994171143"
+                  year "2010"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.61615991592407"
+                  year "2011"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.62685012817383"
+                  year "2012"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "2013"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Panama"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "4.02688980102539"
+                  year "2014"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1988"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1989"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1990"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1991"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1992"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1993"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1994"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1995"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1996"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1997"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "1998"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.968710005283356"
+                  year "1999"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.770730018615723"
+                  year "2000"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.707910001277924"
+                  year "2001"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.618099987506866"
+                  year "2002"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.533079981803894"
+                  year "2003"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.383899986743927"
+                  year "2004"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.298940002918243"
+                  year "2005"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.293480008840561"
+                  year "2006"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.271010011434555"
+                  year "2007"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.362830013036728"
+                  year "2008"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.236059993505478"
+                  year "2009"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.264079988002777"
+                  year "2010"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.343690007925034"
+                  year "2011"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.356610000133514"
+                  year "2012"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value "0.33720999956131"
+                  year "2013"
+              }
+          }
+      }
+      ,
+      Serie{
+          countrySerie "Cuba"
+          indicatorSerie "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)"
+          value {
+              Value {
+                  value ""
+                  year "2014"
+              }
+          }
+      }
+  }
+  countries{
+      Country "Panama" {}
+      ,Country "Cuba" {}
+  }
+  indicators{
+      Indicator "Repetidores, escuela primaria, mujeres (% de mujeres inscriptas)" {}
+  }
+}

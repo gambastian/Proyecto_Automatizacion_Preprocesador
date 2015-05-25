@@ -1,0 +1,8 @@
+[% 
+	for(study in onuJasperModel!Study.all){
+		var t:Template:= TemplateFactory.load('jasper_template.egl');
+		t.populate('study', study);
+		study.name.println();
+		t.generate('C:/Users/SEBASTIAN/Documents/UNIANDES/Automatizacion/Proyecto/onu_jasper.jrxml');
+	}
+%]

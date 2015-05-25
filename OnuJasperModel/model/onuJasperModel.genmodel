@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/OnuJasperModel/src" modelPluginID="OnuJasperModel"
+    modelName="OnuJasperModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>onuJasperModel.ecore</foreignModel>
+  <genPackages prefix="OnuJasperModel" disposableProviderFactory="true" ecorePackage="onuJasperModel.ecore#/">
+    <genClasses ecoreClass="onuJasperModel.ecore#//Study">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Study/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Study/date"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference onuJasperModel.ecore#//Study/reports"/>
+    </genClasses>
+    <genClasses ecoreClass="onuJasperModel.ecore#//Report">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Report/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Report/metric"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Report/startDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Report/endDate"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference onuJasperModel.ecore#//Report/values"/>
+    </genClasses>
+    <genClasses ecoreClass="onuJasperModel.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Value/val"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onuJasperModel.ecore#//Value/year"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

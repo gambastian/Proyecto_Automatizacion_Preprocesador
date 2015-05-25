@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ASCII"?>
+<onuJasperModel:Study
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:onuJasperModel="http://www.example.org/onuJasperModel"
+    xsi:schemaLocation="http://www.example.org/onuJasperModel onuJasperModel.ecore"
+    name="Indicadores Mundiales"
+    date="2015-05-23T00:00:00.000-0500">
+  <reports title="Colombia"
+      metric="Repetidores, escuela primaria, total (% del total de inscriptos)">
+    <values
+        val="532827606201172"
+        year="1988"/>
+    <values
+        val="532829704284668"
+        year="1989"/>
+    <values
+        val="541767387390137"
+        year="1990"/>
+    <values
+        val="56310001373291"
+        year="1991"/>
+    <values
+        val="600303115844727"
+        year="1992"/>
+    <values
+        val="556074485778809"
+        year="1993"/>
+    <values
+        val="602677993774414"
+        year="1994"/>
+    <values
+        val="594006996154785"
+        year="1995"/>
+    <values
+        val="581217613220215"
+        year="1996"/>
+  </reports>
+  <reports title="Costa Rica"
+      metric="Repetidores, escuela primaria, total (% del total de inscriptos)">
+    <values
+        val="622910614013672"
+        year="1988"/>
+    <values
+        val="644760894775391"
+        year="1989"/>
+    <values
+        val="650016403198242"
+        year="1990"/>
+    <values
+        val="642228164672852"
+        year="1991"/>
+    <values
+        val="651810684204102"
+        year="1992"/>
+    <values
+        val="699276275634766"
+        year="1993"/>
+    <values
+        val="721599578857422"
+        year="1994"/>
+    <values
+        val="727882537841797"
+        year="1995"/>
+    <values
+        val="745812301635742"
+        year="1996"/>
+  </reports>
+  <reports title="Venezuela"
+      metric="Repetidores, escuela primaria, total (% del total de inscriptos)">
+    <values
+        val="622910614013672"
+        year="1988"/>
+    <values
+        val="644760894775391"
+        year="1989"/>
+    <values
+        val="650016403198242"
+        year="1990"/>
+    <values
+        val="642228164672852"
+        year="1991"/>
+    <values
+        val="651810684204102"
+        year="1992"/>
+    <values
+        val="699276275634766"
+        year="1993"/>
+    <values
+        val="721599578857422"
+        year="1994"/>
+    <values
+        val="727882537841797"
+        year="1995"/>
+    <values
+        val="745812301635742"
+        year="1996"/>
+  </reports>
+</onuJasperModel:Study>

@@ -1,0 +1,172 @@
+[% 
+	//name.println();
+	//var study : onuJasperModel!Study := onuJasperModel!Study.all.at(0); 
+	var baseReport : onuJasperModel!Report := onuJasperModel!Report.all.at(0); 
+%]
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportTemplate" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f0d7f39d-5261-4a42-8f0b-a32ff829776f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="153"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#483D8B">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#C8BFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="ebb5480c-5f59-495c-be34-56c5640fe113"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="433" height="33" uuid="b7518601-606d-43d9-9392-0826f7fc9ec5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[[%=study.name%]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="379" y="46" width="174" height="22" uuid="f07b51d7-5ca0-4498-b047-0c6497d15c62"/>
+				<text><![CDATA[[%=study.date%]]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="384" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="f9002897-3934-45eb-83d6-2c890bf0f32e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="15" width="553" height="38" uuid="d9c7d547-ec5e-48f2-a0fe-3f5e91428b28"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[[%=baseReport.metric%]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="53" width="80" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[YEAR]]></text>
+			</staticText>
+			[% 
+				var paises : Collection;
+				paises = study.reports.title;
+				
+				var columnWidth : Integer := 455 / paises.size;
+				
+				var x :Integer := 80;
+				for(p in paises){ 
+			%]
+			<staticText>
+				<reportElement x="[%=x%]" y="53" width="[%=columnWidth%]" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[[%=p%]]]></text>
+			</staticText>
+			[%
+				x = x + columnWidth;
+				}%]
+			[%
+				var años : Collection;
+				años = baseReport.values.year;
+				var y : Integer := 70; 
+				for(año in años){
+				
+			%]
+			<staticText>
+				<reportElement x="0" y="[%=y%]" width="80" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[[%=año%]]]></text>
+			</staticText>
+			[%
+				var x :Integer := 80;
+				for(p in paises){
+			%]
+			<staticText>
+				<reportElement x="[%=x%]" y="[%=y%]" width="[%=columnWidth%]" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[%=study.reports->select(r | r.title = p).values.at(0)->select(v | v.year = año).val%]]></text>
+			</staticText>
+			[%
+					x = x + columnWidth;
+				}
+				y = y + 17;
+			}
+			%]
+		</band>
+	</columnHeader>
+	
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="48999f94-445d-444a-af3c-ab52a3dc985b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="ecc25963-0336-4039-89b1-5403baa0a0f6"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="31d33f55-6723-417d-9e94-7aa5b76703c9"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="ee2f2815-5ef9-46f1-b2ff-c59502394ddc"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
