@@ -30,6 +30,7 @@ public class Principal extends javax.swing.JFrame {
     private boolean fileLoaded = false;
     
     private List<String> paises;
+     private List<String> metricas;
     
     private List<String> paisesCSV = new ArrayList<>();
     private List<String> metricasCSV = new ArrayList<>();
@@ -280,7 +281,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        paises=jList1.getSelectedValuesList();
+        metricas=jList2.getSelectedValuesList();
+        
+        for (String string : paises){
+            System.out.println(string);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
