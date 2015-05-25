@@ -5,15 +5,13 @@
  */
 package preprocesadoronucsv.model.generate;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.ArrayList;
 import java.util.List;
 import preprocesadoronucsv.pojo.MetricMap;
+import preprocesadoronucsv.pojo.Value;
 
 /**
  * Clase que toma un archivo csv y segun unos paises y metricas seleccionados
@@ -41,7 +39,28 @@ public class ModelGenerator {
             
             //series
             writer.write("  series{\n");
-            
+            boolean moreThanOne = false;
+            for(MetricMap mm : metricsMap){
+                for(String country : mm.getData().keySet()){
+                    for(Value v : mm.getData().get(country)){
+                        if(moreThanOne){
+                            writer.write("      ,\n");
+                        }
+                        writer.write("      Serie{\n");
+                        writer.write("          countrySerie \""+ country +"\"\n");
+                        writer.write("          indicatorSerie \""+ mm.getMetric() +"\"\n");
+                        writer.write("          value {\n");
+                        writer.write("              Value {\n");    
+                        writer.write("                  value \""+ v.getVal() +"\"\n");    
+                        writer.write("                  year \""+ v.getYear() +"\"\n");    
+                        writer.write("              }\n");
+                        writer.write("          }\n");
+                        writer.write("      }\n");
+                        
+                        moreThanOne = true;
+                    }
+                }
+            }
             writer.write("  }\n");
             
             // countries
