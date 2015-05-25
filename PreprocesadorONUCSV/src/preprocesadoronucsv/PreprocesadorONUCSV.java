@@ -32,6 +32,8 @@ public class PreprocesadorONUCSV {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnsupportedEncodingException, FileNotFoundException {
+        
+        
         /*CSVReader reader;
         String [] nextLine=null;
         int campo = 0;

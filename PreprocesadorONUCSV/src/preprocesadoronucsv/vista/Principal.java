@@ -5,7 +5,20 @@
  */
 package preprocesadoronucsv.vista;
 
+import com.opencsv.CSVReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -17,6 +30,10 @@ public class Principal extends javax.swing.JFrame {
     private boolean fileLoaded = false;
     
     private List<String> paises;
+    
+    private List<String> paisesCSV = new ArrayList<>();
+    private List<String> metricasCSV = new ArrayList<>();
+    
     
     /**
      * Creates new form Interfaz
@@ -44,6 +61,8 @@ public class Principal extends javax.swing.JFrame {
         seleccionPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -79,21 +98,30 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
+        jList2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList2);
+
         javax.swing.GroupLayout seleccionPanelLayout = new javax.swing.GroupLayout(seleccionPanel);
         seleccionPanel.setLayout(seleccionPanelLayout);
         seleccionPanelLayout.setHorizontalGroup(
             seleccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(seleccionPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(100, 100, 100)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         seleccionPanelLayout.setVerticalGroup(
             seleccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(seleccionPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGroup(seleccionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,6 +164,81 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         final String rutaArchivo = archivoTextField.getText();
+        int seleccion = 0;
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv");
+        fileChooser.setFileFilter(filter);
+        seleccion = fileChooser.showOpenDialog(null);
+        CSVReader reader = null;
+        String [] nextLine=null;
+        int campo = 0;
+        
+        
+        try {
+            String path = fileChooser.getSelectedFile().getAbsolutePath();
+            path=path.replace("\\", "/");
+            System.out.println(path);
+            reader = new CSVReader(new InputStreamReader(new FileInputStream(path), "UTF-8"),',', '\"', 1);
+                
+        
+            while ((nextLine = reader.readNext()) != null) {
+                
+                for (campo = 0; campo <3; campo++){
+                   if (nextLine[campo].startsWith("Data from ")||nextLine[campo].startsWith("Last Updated"))break;
+                   nextLine[campo]=preprocesadoronucsv.PreprocesadorONUCSV.remove1(nextLine[campo]);
+                   if (campo ==0){
+                       paisesCSV.add(nextLine[campo]);
+                   }else if (campo ==2){
+                       metricasCSV.add(nextLine[campo]);
+                   }
+                   
+                }   
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+        try {
+            reader.close();
+        }catch (IOException e) {
+           reader = null;
+        }
+        
+        
+        Set<String> hsPaises = new HashSet<>();
+        hsPaises.addAll(paisesCSV);
+        paisesCSV.clear();
+        paisesCSV.addAll(hsPaises);
+        
+        Set<String> hsMetricas = new HashSet<>();
+        hsMetricas.addAll(metricasCSV);
+        metricasCSV.clear();
+        metricasCSV.addAll(hsMetricas);
+        
+        DefaultListModel modelPaises = new DefaultListModel();
+        DefaultListModel modelMetricas = new DefaultListModel();
+      
+        for (String element : hsPaises) {
+            modelPaises.addElement(element);
+        }
+        for (String element : hsMetricas) {
+            modelMetricas.addElement(element);
+        }
+        
+        jList1.setModel(modelPaises); // <-- Set the model to make it visible
+        jList1.setVisible(true);
+        
+        jList2.setModel(modelMetricas); // <-- Set the model to make it visible
+        jList2.setVisible(true);
+        
+        for (String element : hsPaises) {
+            System.out.println(element);
+        }
+        for (String element : hsMetricas) {
+            System.out.println(element);
+        }
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -181,8 +284,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
+    private javax.swing.JList jList2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel seleccionPanel;
     // End of variables declaration//GEN-END:variables
 }
