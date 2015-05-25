@@ -92,6 +92,6 @@ public class ModelGenerator {
             System.out.println("Error while reading file line by line:"
                     + e.getMessage());
         }
-
+        System.out.println("FINISHED");
     }
 }

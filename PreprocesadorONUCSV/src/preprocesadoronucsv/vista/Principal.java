@@ -7,18 +7,26 @@ package preprocesadoronucsv.vista;
 
 import com.opencsv.CSVReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import preprocesadoronucsv.PreprocesadorONUCSV;
+import preprocesadoronucsv.model.generate.ModelGenerator;
+import preprocesadoronucsv.pojo.MetricMap;
+import preprocesadoronucsv.pojo.Value;
 
 /**
  *
@@ -26,16 +34,24 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /** Habilita el formulario para seleccion */
+    /**
+     * Habilita el formulario para seleccion
+     */
     private boolean fileLoaded = false;
-    
+
     private List<String> paises;
-     private List<String> metricas;
-    
+    private List<String> metricas;
+
     private List<String> paisesCSV = new ArrayList<>();
     private List<String> metricasCSV = new ArrayList<>();
-    
-    
+
+    private List<MetricMap> metricsMap = new ArrayList<>();
+
+    private final String NO_APLICA = "#N/A";
+    private final String EMPTY = "";
+
+    private String path;
+
     /**
      * Creates new form Interfaz
      */
@@ -209,85 +225,142 @@ public class Principal extends javax.swing.JFrame {
         fileChooser.setFileFilter(filter);
         seleccion = fileChooser.showOpenDialog(null);
         CSVReader reader = null;
-        String [] nextLine=null;
+        String[] nextLine = null;
         int campo = 0;
-        
-        
+
         try {
-            String path = fileChooser.getSelectedFile().getAbsolutePath();
-            path=path.replace("\\", "/");
+            path = fileChooser.getSelectedFile().getAbsolutePath();
+            path = path.replace("\\", "/");
             System.out.println(path);
-            reader = new CSVReader(new InputStreamReader(new FileInputStream(path), "UTF-8"),',', '\"', 1);
-                
-        
+
+            reader = new CSVReader(new InputStreamReader(new FileInputStream(path), "UTF-8"), ',', '\"', 1);
+
             while ((nextLine = reader.readNext()) != null) {
-                
-                for (campo = 0; campo <3; campo++){
-                   if (nextLine[campo].startsWith("Data from ")||nextLine[campo].startsWith("Last Updated"))break;
-                   nextLine[campo]=preprocesadoronucsv.PreprocesadorONUCSV.remove1(nextLine[campo]);
-                   if (campo ==0){
-                       paisesCSV.add(nextLine[campo]);
-                   }else if (campo ==2){
-                       metricasCSV.add(nextLine[campo]);
-                   }
-                   
-                }   
+
+                for (campo = 0; campo < 3; campo++) {
+                    if (nextLine[campo].startsWith("Data from ") || nextLine[campo].startsWith("Last Updated")) {
+                        break;
+                    }
+                    nextLine[campo] = PreprocesadorONUCSV.remove1(nextLine[campo]);
+                    if (campo == 0) {
+                        paisesCSV.add(nextLine[campo]);
+                    } else if (campo == 2) {
+                        metricasCSV.add(nextLine[campo]);
+                    }
+                }
             }
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-               
+
         try {
             reader.close();
-        }catch (IOException e) {
-           reader = null;
+        } catch (IOException e) {
+            reader = null;
         }
-        
-        
+
         Set<String> hsPaises = new HashSet<>();
         hsPaises.addAll(paisesCSV);
         paisesCSV.clear();
         paisesCSV.addAll(hsPaises);
-        
+
         Set<String> hsMetricas = new HashSet<>();
         hsMetricas.addAll(metricasCSV);
         metricasCSV.clear();
         metricasCSV.addAll(hsMetricas);
-        
+
         DefaultListModel modelPaises = new DefaultListModel();
         DefaultListModel modelMetricas = new DefaultListModel();
-      
+
         for (String element : hsPaises) {
             modelPaises.addElement(element);
         }
         for (String element : hsMetricas) {
             modelMetricas.addElement(element);
         }
-        
+
         jList1.setModel(modelPaises); // <-- Set the model to make it visible
         jList1.setVisible(true);
-        
+
         jList2.setModel(modelMetricas); // <-- Set the model to make it visible
         jList2.setVisible(true);
-        
+
         for (String element : hsPaises) {
             System.out.println(element);
         }
         for (String element : hsMetricas) {
             System.out.println(element);
         }
-        
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        paises=jList1.getSelectedValuesList();
-        metricas=jList2.getSelectedValuesList();
-        
-        for (String string : paises){
-            System.out.println(string);
+
+        paises = jList1.getSelectedValuesList();
+        metricas = jList2.getSelectedValuesList();
+
+        List<String> anios = new ArrayList<>();
+
+        CSVReader reader0;
+        try {
+            reader0 = new CSVReader(new InputStreamReader(new FileInputStream(path), "UTF-8"), ',', '\"', 0);
+            String[] nextLine0 = null;
+            if ((nextLine0 = reader0.readNext()) != null) {
+                for (int i = 4; i < nextLine0.length; i++) {
+                    anios.add(nextLine0[i].substring(0, 4));
+                }
+            }
+            System.out.println(anios);
+
+            CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream(path), "UTF-8"), ',', '\"', 1);
+            String[] nextLine = null;
+            while ((nextLine = reader.readNext()) != null) {
+                if (paises.contains(PreprocesadorONUCSV.remove1(nextLine[0]))
+                        && metricas.contains(PreprocesadorONUCSV.remove1(nextLine[2]))) {
+                    String metrica = PreprocesadorONUCSV.remove1(nextLine[2]);
+                    if (existsMetric(metrica) == null) {
+                        MetricMap metMap = new MetricMap();
+                        Map<String, List<Value>> countryValues = new HashMap<>();
+                        List<Value> values = new ArrayList<>();
+
+                        for (int a = 0; a < anios.size(); a++) {
+                            Value val = new Value();
+                            val.setYear(anios.get(a));
+                            val.setVal(nextLine[a + 4].equals(NO_APLICA) ? EMPTY : nextLine[a + 4]);
+
+                            values.add(val);
+                        }
+                        countryValues.put(PreprocesadorONUCSV.remove1(nextLine[0]), values);
+
+                        metMap.setMetric(metrica);
+                        metMap.setData(countryValues);
+
+                        metricsMap.add(metMap);
+                    } else {
+                        MetricMap metMap = existsMetric(metrica);
+                        List<Value> values = new ArrayList<>();
+                        for (int a = 0; a < anios.size(); a++) {
+                            Value val = new Value();
+                            val.setYear(anios.get(a));
+                            val.setVal(nextLine[a + 4].equals(NO_APLICA) ? EMPTY : nextLine[a + 4]);
+
+                            values.add(val);
+                        }
+                        metMap.getData().put(PreprocesadorONUCSV.remove1(nextLine[0]), values);
+                    }
+                }
+            }
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        ModelGenerator.generateModelOnu(metricsMap, paises, metricas);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -324,6 +397,15 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+    }
+
+    private MetricMap existsMetric(String metric) {
+        for (MetricMap mm : metricsMap) {
+            if (mm.getMetric().equals(metric)) {
+                return mm;
+            }
+        }
+        return null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
