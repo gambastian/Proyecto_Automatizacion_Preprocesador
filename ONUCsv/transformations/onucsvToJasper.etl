@@ -1,0 +1,26 @@
+pre { 
+	onuCsvMM!OnuCsv.all().collect(e | e.csvToJasper());
+}
+
+operation onuCsvMM!OnuCsv csvToJasper() : jasperMM!Study{
+	var t1: new jasperMM!Study;
+	t1.reports = self.series.collect(e | e.serieToReport());
+	t1.name="Indicadores del desarrollo mundial";
+	return t1;
+}	
+
+operation onuCsvMM!Serie serieToReport() : jasperMM!Report{
+	var t1: new jasperMM!Report;
+	
+	t1.title = self.countrySerie.name;
+	t1.metric = self.indicatorSerie.name;
+	t1.values= self.value.collect(e | e.valueToValue());
+	return t1;
+}
+
+operation onuCsvMM!Value valueToValue() : jasperMM!Value{
+	var t: new jasperMM!Value;
+	t.val=self.value;
+	t.year = self.year;
+	return t;
+}

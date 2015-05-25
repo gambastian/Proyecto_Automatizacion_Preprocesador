@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ONUCsv/src" modelPluginID="ONUCsv" modelName="Onucsvs"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>onucsvs.ecore</foreignModel>
+  <genPackages prefix="Onucsvs" disposableProviderFactory="true" ecorePackage="onucsvs.ecore#/">
+    <genClasses ecoreClass="onucsvs.ecore#//OnuCsv">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//OnuCsv/descriptor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//OnuCsv/serie"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//Descriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onucsvs.ecore#//Descriptor/headers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Descriptor/year"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//Year"/>
+    <genClasses ecoreClass="onucsvs.ecore#//Country">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onucsvs.ecore#//Country/name"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//Country_Code">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onucsvs.ecore#//Country_Code/value"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//Serie">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Serie/country"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Serie/countryCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Serie/indicator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Serie/indicatorCode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Serie/value"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//Indicator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onucsvs.ecore#//Indicator/name"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//IndicatorCode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onucsvs.ecore#//IndicatorCode/value"/>
+    </genClasses>
+    <genClasses ecoreClass="onucsvs.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute onucsvs.ecore#//Value/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference onucsvs.ecore#//Value/valueYear"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jasperReportMM:Study xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jasperReportMM="http://www.example.org/jasperReportMM" name="ColombianUnemploymentStudy" date="2014-01-01T00:00:00.000-0500">
+  <reports title="Colombian Unemployment" metric="unemployment" startDate="2014-01-01T00:00:00.000-0500" endDate="2014-12-31T00:00:00.000-0500">
+    <values val="18" year="2014"/>
+  </reports>
+</jasperReportMM:Study>

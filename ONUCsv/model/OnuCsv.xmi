@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<onucsvs:OnuCsv xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:onucsvs="http://www.example.org/onucsvs">
+  <series countrySerie="//@countries.0" indicatorSerie="//@indicators.0">
+    <value value="42.0421905517578" year="2009"/>
+    <value value="39.7918701171875" year="2010"/>
+  </series>
+  <series countrySerie="//@countries.0" indicatorSerie="//@indicators.1">
+    <value value="96.5279998779297" year="2009"/>
+    <value value="97.3939971923828" year="2010"/>
+  </series>
+  <series countrySerie="//@countries.1" indicatorSerie="//@indicators.0">
+    <value value="36.1276893615723" year="2009"/>
+    <value value="29.1024703979492" year="2010"/>
+  </series>
+  <series countrySerie="//@countries.1" indicatorSerie="//@indicators.1">
+    <value value="98.2601318359375" year="2009"/>
+    <value value="98.5956420898438" year="2010"/>
+  </series>
+  <countries name="Chile" countryCode="CHL"/>
+  <countries name="Colombia" countryCode="COL"/>
+  <indicators name="Porcentaje del gasto p&#xfa;blico en educaci&#xf3;n secundaria (% del gasto p&#xfa;blico en educaci&#xf3;n)" indicatorCode="SE.XPD.SECO.ZS"/>
+  <indicators name="Alumnos que pasan a la escuela secundaria (%)" indicatorCode="SE.SEC.PROG.ZS"/>
+</onucsvs:OnuCsv>
